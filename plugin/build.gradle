@@ -131,6 +131,8 @@ task functionalTest(type: Test, dependsOn: resolveTestPlugins) {
     systemProperty 'buildDirectory', project.buildDir.absolutePath
     systemProperty 'hudson.Main.development', 'true'
     systemProperty 'jenkins.test.noSpaceInTmpDirs', 'true'
+    systemProperty 'jna.nosys', 'true'
+    systemProperty 'jna.boot.library.path', null
 
     testLogging {
         events 'started', 'passed', 'skipped', 'failed'

@@ -58,6 +58,8 @@ abstract class AbstractDslTask extends JavaExec {
         properties['inputFiles'] = CollectionUtils.join(File.pathSeparator, groovyFiles)
         properties['serverConfiguration'] = server != null ?
                 encodeBase64(new JsonBuilder(server.configuration).toString()) : ''
+        properties['jna.nosys'] = true
+        properties['jna.boot.library.path'] = null
         systemProperties = properties
 
         main = mainClass
